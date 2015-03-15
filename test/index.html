@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.js'></script>
+    <script src="fsp.js"></script>
+    <script src="outdoorsv7.js"></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiYXBvbGxvbG0iLCJhIjoiM2pnUTZ6byJ9.WivqOz2WgjJNBPKC1vrliA';
+
+Object.keys(style.sources).forEach(function(source){
+    outdoors.sources[source] = style.sources[source];
+})
+
+//blend the outdoors style with the custom style
+style.layers.forEach(function(layer){
+    outdoors.layers.push(layer);
+})
+
+//Add custom constants
+outdoors.constants["@coverage"] = "#ff3300";
+outdoors.constants["@cicos"] = "#ff5fff";
+
+
+var map = new mapboxgl.Map({
+  container: 'map', // container id
+  //style: 'https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json', //stylesheet location
+  style: outdoors,
+  //center: [23.7, 90.3], // starting position, bangladesh
+  //center: [47, -122], //seattle
+    center: [0.088979, 37.820436], //kenya
+  zoom: 9 // starting zoom
+});
+
+</script>
+
+</body>
+</html>
