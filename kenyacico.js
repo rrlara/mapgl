@@ -1,4 +1,4 @@
-var cico = [{
+{
   "type": "FeatureCollection",
   "features": [
     {
@@ -11162,4 +11162,4 @@ var cico = [{
       }
     }
   ]
-}]
+}
