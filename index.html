@@ -13,18 +13,23 @@
 
     <script src='kenyacico.js'></script>
     <script src='mexico.js'></script>
+    <script src='hike.js'></script>
 </head>
 <body>
 
 <div id='map'></div>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoicnJsYXJhIiwiYSI6IjNjSlJmUkkifQ.PlJc5PGK-7-EDMmsfqYKfg';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json',
-        center: [37.8, -96],
-        zoom: 3
-    });
+    if (!mapboxgl.util.supported()) {
+        alert('Your browser does not support Mapbox GL');
+    } else {
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json',
+            center: [37.8, -96],
+            zoom: 3
+        });
+    }
 
 //    Object.keys(mexico[0].features).forEach(function(source){
 ////        outdoors.sources[source] = style.sources[source];

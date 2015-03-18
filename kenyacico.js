@@ -1,4 +1,4 @@
-{
+var kenyacico = [{
   "type": "FeatureCollection",
   "features": [
     {
@@ -11162,4 +11162,4 @@
       }
     }
   ]
-}
+}]
