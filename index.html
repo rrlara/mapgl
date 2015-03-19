@@ -27,9 +27,12 @@
             container: 'map',
             style: 'https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json',
             center: [37.8, -96],
-            zoom: 3
+            zoom: 3,
+            hash: true
         });
     }
+
+    map.addControl(new mapboxgl.Navigation());
 
 //    Object.keys(mexico[0].features).forEach(function(source){
 ////        outdoors.sources[source] = style.sources[source];
