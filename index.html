@@ -4,8 +4,10 @@
     <meta charset='utf-8' />
     <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.css' rel='stylesheet' />
+    <!--<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.js'></script>-->
+    <!--<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.css' rel='stylesheet' />-->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.11.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.11.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -20,17 +22,25 @@
 <div id='map'></div>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoicnJsYXJhIiwiYSI6IjNjSlJmUkkifQ.PlJc5PGK-7-EDMmsfqYKfg';
-    if (!mapboxgl.util.supported()) {
-        alert('Your browser does not support Mapbox GL');
-    } else {
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json',
-            center: [37.8, -96],
-            zoom: 3,
-            hash: true
-        });
-    }
+//    if (!mapboxgl.util.supported()) {
+//        alert('Your browser does not support Mapbox GL');
+//    } else {
+//        var map = new mapboxgl.Map({
+//            container: 'map',
+//            style: 'https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json',
+//            center: [37.8, -96],
+//            zoom: 3,
+//            hash: true
+//        });
+//    }
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v8',
+        center: [37.8, -96],
+        zoom: 3,
+        hash: true
+    });
 
     map.addControl(new mapboxgl.Navigation());
 
@@ -44,7 +54,7 @@
     for (item in features){
         var feature = features[item];
         feature.properties['marker-symbol'] = "marker";
-        feature.properties['marker-color'] = "#bbb";
+//        feature.properties['marker-color'] = "#bbb";
 //        console.log(feature);
     }
 
@@ -63,7 +73,7 @@
             "layout": {
                 "icon-image": "{marker-symbol}-12",
                 "text-field": "{comment}",
-                "text-font": "Open Sans Semibold, Arial Unicode MS Bold",
+//                "text-font": "Open Sans Semibold, Arial Unicode MS Bold",
                 "text-offset": [0, 0.6],
                 "text-anchor": "top"
             },
