@@ -42,7 +42,10 @@
         hash: true
     });
 
-    map.addControl(new mapboxgl.Navigation());
+//    map.addControl(new mapboxgl.Navigation());
+
+    // disable map rotation
+    map.dragRotate.disable();
 
 //    Object.keys(mexico[0].features).forEach(function(source){
 ////        outdoors.sources[source] = style.sources[source];
@@ -53,7 +56,7 @@
 
     for (item in features){
         var feature = features[item];
-        feature.properties['marker-symbol'] = "marker";
+        feature.properties['marker-symbol'] = "markers";
 //        feature.properties['marker-color'] = "#bbb";
 //        console.log(feature);
     }
@@ -71,7 +74,7 @@
             "type": "symbol",
             "source": "markers",
             "layout": {
-                "icon-image": "{marker-symbol}-12",
+                "icon-image": "marker-15",
                 "text-field": "{comment}",
 //                "text-font": "Open Sans Semibold, Arial Unicode MS Bold",
                 "text-offset": [0, 0.6],
